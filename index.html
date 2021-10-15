@@ -1,125 +1,164 @@
-<html>
-    <header>
-        <title>CV Rizaldo Abdulrachman</title>
-        <div class="container" style="display: flex; height: 30%;">
-            <div style="width: 20%;">
-                <img style="height: 100%; width: 100%;" src="assets/profile.jpg">
-            </div>
-            <div style="width: 50%; background:#34495e;">
-                <div class="about">
-                    <p style="font-size: large; font-weight: bold; ">RIZALDO ABDULRACHMAN</p>
-                    <p>College Student</p>
-                    <p>Email : rizaldo.14117152@student.itera.ac.id</p>
-                </div>
-            </div>
-            <div style="width: 30%; background:#34495e">
-               <div class="link">
-                    <p>Github : <a style="color: white;" href="https://github.com/rizaldoar">rizaldoar</a></p>
-                    <p>Linkedin : <a style="color: white;" href="https://linkedin.com/in/rizaldo-abdulrachman-1a19471a0/">Rizaldo Abdulrachman</a></p>
-                </div> 
-                
-            </div>
-        </div>
-    </header>
-    <nav>
-        <ul>
-            <li><a class="active" href="#home">Home</a></li>
-            <li><a href="#profile">Profile</a></li>
-            <li><a href="#news">News</a></li>
-            <li><a href="#feedback">Feedback</a></li>
-          </ul>
-    </nav>
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Tugas Minggu 2</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial=scale=1.0 ">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"> 
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+    </head>
     <body>
-        <section>
-            <div class="container" style="display: flex; height: 60%;">
-                <div class="body">
-                    <p class="work" style="font-size: 30px;">Work & Projects Experience</p>
-                    <hr>
-                    <p class="work">Intern in Diskominfotik Provinsi Lampung Jun-Aug 2020</p>
-                    <p class="work">Project Manager in Unreal Shopping Web Projects Feb-Aug 2020</p>
-                    <p class="work">Fullstack Developer in Unreal Web Maintenance Projects Feb 2021</p>
-                    <p class="work">Fullstack Developer in Armilarako Web Maintenance Projects Jul 2020</p>
-                </div>
-                <div class="body">
-                    <p class="work" style="font-size: 30px;">Organization Experience</p>
-                    <hr>
-                    <p class="work">Chairman of English Club SMAN 10 Bandar Lampung 2016-2017 </p>
-                    <p class="work">Head of Ekstrakampus & Alumni HMIF ITERA 2020</p>
-                </div>
-        </section>
-        <section>
-            <div>
-                <form action="/action_page.php">
-                  <label for="name"> Name</label>
-                  <input type="text" id="fname" name="firstname" placeholder="Your name..">
-              
-                  <label for="comment">comment</label>
-                  <input type="text" id="comment" name="comment" placeholder="Your comment">
-              
-                
-                  <input type="submit" value="Submit">
-                </form>
-              </div>
-        </section>         
-    </body>
-    <footer>
-        <div class="container" style="display: flex; height: 10%; background: #34495e; position: relative;" >
-            <a style="color: white; padding-left: 700px; text-align: center; padding-top: 20px;">&copy; Copyright 2021 Teratics</a>
+        <div class="header">
+            <div class="img-header">
+                <img src="./assets/itera.png" height="128px" width="136px">
+            </div>
+            <div class="header-text">
+                <a>Institut Teknologi Sumatera</a>
+            </div>
+            <div class="navbar">
+                <a href="#"><i class="fa fa-fw fa-search"></i> Search</a>
+                <a href="#"><i class="fa fa-fw fa-user"></i> Login</a>
+            </div>
         </div>
-    </footer>
+        <div class="content">
+            <div class="card">
+                <img src="./assets/profile.jpg" alt="aldo" style="width:100%">
+                <h1>Rizaldo Abdulrachman</h1>
+                <p class="title">Mahasiswa</p>
+                <p>Institut Teknologi Sumatera</p>
+                <a href="#"><i class="fa fa-dribbble"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-linkedin"></i></a>
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <br>
+                <a>List Berita</a>
+                <br>
+                <a href="https://bbc.com">Visit bbc</a>
+                <br>
+                <a href="https://cnn.com">Visit cnn</a>
+                <br>
+                <a href="https://kompas.com">Visit kompas</a>
+                <p><button>Contact</button></p>
+              </div>
+        </div>
+     
+    </body>
+    <div class="footer">
+        <p>Footer</p>
+      </div>
+   
     <style>
-        .body {
-            padding-left: 30px;
-            padding-top: 40px;
-            width: 50%;
+        .card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  background-color:#E5E5E5;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+button {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: black;
+  background-color: #abb7b7;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button:hover, a:hover {
+  opacity: 0.7;
+}
+        body {
+            
+            margin: 0;
         }
-        p.work{
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            color: black;
-        }
-        p{
-            font-family: Verdana, Geneva, Tahoma, sans-serif;
-            color: white;
-        }
-        .about{
-            padding-left: 20px;
-            padding-top: 30px;
+        .header{
+            background-color: #E4F1FE;
+           
+            height: 146px;
             
         }
-        .link{
-            padding-left: 40px;
-            padding-top: 30px; 
+        .img-header{
+            width: 136px;
+            height: 128px;
+            left: 15px;
+            top: 9px;
+    
         }
-        ul {
-        list-style-type: none;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        background-color: #333;
-        }
+        .header-text{
 
-        li {
-        float: left;
+            font-weight: bold;
+            font-style: normal;
+            font-size: 48px;
+            line-height: 59px
         }
+        .header-text > a {
+            position: absolute;
+            width: 704px;
+            height: 59px;
+            left: 368px;
+            top: 44px;
+            padding-top: 44;
+            padding-bottom: 43;
 
-        li a {
-        display: block;
-        color: white;
-        text-align: center;
-        padding: 14px 16px;
-        text-decoration: none;
+            font-family: 'Montserrat', sans-serif;
+            font-style: normal;
+            font-weight: 900;
+            font-size: 48px;
+            line-height: 59px;
         }
+        .navbar{
+            font-family: 'Montserrat', sans-serif;
+            position: absolute;
+            width: 297px;
+            height: 89px;
+            left: 1200px;
+            top: 60px;
+            font-weight: bold;
+            font-size: 23px;
+          
+        }
+        .navbar > a{
+            color: black;
+            background-color: #E4F1FE;
+        }
+        .content {
+            position: absolute;
+            width: 100%;
+            height: 780px;
+            left: 0px;
+            top: 146px;
 
-        li a:hover {
-        background-color: #111;
+            background-color: #6BB9F0;
         }
-        input[type=text] {
-        width: 100%;
-        padding: 12px 20px;
-        margin: 8px 0;
-        box-sizing: border-box;
-        }
-           
+        .footer {
+   position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%;
+   background-color: #f5d76e;
+   color: white;
+   text-align: center;
+}
     </style>
 
 </html>
