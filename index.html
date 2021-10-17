@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:100" rel="stylesheet">
+    <head>
+        <title>Tugas Prak Minggu 3 By : Rizaldo Abdulrachman</title>
+    </head>
+    <body>
+       
+        <div class="container">
+            <span id='1' onclick="color(this)" class="color c1r1"></span>
+            <span id='2' onclick="color(this)" class="color c1r2"></span>
+            <span  onclick="color(this)" class="color c1r3"></span>
+            <span  onclick="color(this)" class="color c1r4"></span>    
+        </div>
+        <div class="break">
+            <h2>Select Song to play</h2>
+            <form name="formid">
+            <select name="selectsong" onchange="getSong () ">
+            <option>Select Song</option>
+            <option value=".Feast - Upside Down">.Feast - Upside Down</option>
+            <option value=".Feast - Tel Aviv">.Feast - Tel Aviv</option>
+            <option value=".Feast - Tarian Penghancur Raya">.Feast - Tarian Penghancur Raya</option>
+            <option value=".Feast - Fastest Man Alive">.Feast - Fastest Man Alive</option>
+            </select>
+            </form>
+            <label id="song" style="font-weight: 900; color: black;"></label>
+            <form id="form">
+                <input type="number" name="" id="number"><br>
+                <input type="submit" value="check">
+
+            </form>
+            <p style="font-weight: 900;">Hasilnya = </p>
+            <p style="font-weight: 900;" id="result"></p>
+            </div>
+        <script>
+            function getSong(){
+                document.getElementById('song').innerHTML=("Now Playing - "+formid.selectsong[formid.selectsong.selectedIndex].text)
+            }
+            function color(z) {
+            var a = getComputedStyle(z);
+            var b = a.backgroundColor;
+            document.getElementsByTagName("BODY")[0].style.backgroundColor=b;
+            }
+            var frm =document.getElementById("form");
+            frm.onsubmit=function(){
+                var num=document.getElementById("number").value;
+                var result=document.getElementById("result");
+                var i, mult=1;
+                for (i=1; i<=num;i++){
+                    mult=mult*i;
+
+                }
+                result.innerHTML=mult;
+                return false;
+            }
+            </script>
+    </body>
+    
+</html>
+
+<style>
+  * {
+    font-size: 30px;
+    font-family: 'Montserrat', sans-serif;
+    
+  }
+  
+    body{
+        margin-inline: 30%;
+        display: flex;
+        height: 100vh;
+        align-items: center;
+        justify-self: center;
+        justify-content: center;
+    }
+    .container{
+        border: 2px solid #333;
+        margin: 0;
+        padding: 0;
+    
+    }
+    .color{
+        display: table-cell;
+        width: 50px;
+        height: 50px;
+        margin: 0 1px;
+        cursor: pointer;
+        border: 2px solid #FFF;
+    
+    }
+    .c1r1 {
+        background-color: red ;
+    }
+    .c1r2 {
+        background-color: blue;
+    }
+    .c1r3 {
+        background-color: green;
+    }
+    .c1r4 {
+        background-color: yellow;
+    }
+    
+    
+</style>
