@@ -1,105 +1,96 @@
 <!DOCTYPE html>
 <html>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:100" rel="stylesheet">
-    <head>
-        <title>Tugas Prak Minggu 3 By : Rizaldo Abdulrachman</title>
-    </head>
-    <body>
-       
-        <div class="container">
-            <span id='1' onclick="color(this)" class="color c1r1"></span>
-            <span id='2' onclick="color(this)" class="color c1r2"></span>
-            <span  onclick="color(this)" class="color c1r3"></span>
-            <span  onclick="color(this)" class="color c1r4"></span>    
+
+<head>
+    <title>CRUD JQuery Ajax</title>
+</head>
+
+<body>
+    <div class="container-fluid" style="padding: 0px; margin: 0px;">
+        <div class="jumbotron">
+            <h1 class="text-center">FORM MAHASISWA</h1>
         </div>
-        <div class="break">
-            <h2>Select Song to play</h2>
-            <form name="formid">
-            <select name="selectsong" onchange="getSong () ">
-            <option>Select Song</option>
-            <option value=".Feast - Upside Down">.Feast - Upside Down</option>
-            <option value=".Feast - Tel Aviv">.Feast - Tel Aviv</option>
-            <option value=".Feast - Tarian Penghancur Raya">.Feast - Tarian Penghancur Raya</option>
-            <option value=".Feast - Fastest Man Alive">.Feast - Fastest Man Alive</option>
-            </select>
-            </form>
-            <label id="song" style="font-weight: 900; color: black;"></label>
-            <form id="form">
-                <input type="number" name="" id="number"><br>
-                <input type="submit" value="check">
-
-            </form>
-            <p style="font-weight: 900;">Hasilnya = </p>
-            <p style="font-weight: 900;" id="result"></p>
+    </div>
+    <div class="container" style="padding-top: 25px;">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="pull-right">
+                    <button class="btn btn-success" id="show-add">Tambah Data Baru</button>
+                </div>
+                <div id="link-add" class="form-inline">
+                    <div class="form-group col-md-3">
+                        <input type="number" name="nim" id="nim" placeholder="NIM" class="form-control" required />
+                    </div>
+                    <div class="form-group col-md-3">
+                        <input type="text" name="nama" id="nama" placeholder="Nama" class="form-control" required />
+                    </div>
+                    <div class="form-group col-md-3">
+                        <select name="prodi" name="prodi" id="prodi" class="form-control">
+                            <option value="">==Pilih Prodi==</option>
+                            <option value="IF">Teknik Informatika</option>
+                            <option value="EL">Teknik Elektro</option>
+                            <option value="SI">Teknik Sipil</option>
+                            <option value="TG">Teknik Geofisika</option>
+                            <option value="MA">Matematika</option>
+                        </select>
+                    </div>
+                    <div class="form-group col-md-3">
+                        <input type="number" id="angkatan" name="angkatan" placeholder="Tahun Angkatan" class="form-control" required />
+                    </div>
+                    <div class="form-group col-md-3">
+                        <button type="button" class="btn btn-primary" id="add" name="add">Tambah Data</button>
+                        <button type="button" href="javascript:void(0);" class="btn btn-default" id="cancel" name="add" onclick="$('#link-add').slideUp(400);$('#show-add').show(600);">Cancel</button>
+                    </div>
+                </div>
             </div>
-        <script>
-            function getSong(){
-                document.getElementById('song').innerHTML=("Now Playing - "+formid.selectsong[formid.selectsong.selectedIndex].text)
-            }
-            function color(z) {
-            var a = getComputedStyle(z);
-            var b = a.backgroundColor;
-            document.getElementsByTagName("BODY")[0].style.backgroundColor=b;
-            }
-            var frm =document.getElementById("form");
-            frm.onsubmit=function(){
-                var num=document.getElementById("number").value;
-                var result=document.getElementById("result");
-                var i, mult=1;
-                for (i=1; i<=num;i++){
-                    mult=mult*i;
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="records_content"></div>
+                <br>
+                <div class="col-md-offset-1 col-md-10" id="table_content">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="jquery-3.5.1.min.js"></script>
+    <script type="text/javascript" src="ajax.js"></script>
+    <script>
+        $(document).ready(function() {
+        $('#add').click(function() {
+        var nim = $('#nim').val();
+        var nama = $('#nama').val();
+        var prodi = $('#prodi').val();
+        var angkatan = $('#angkatan').val();
 
-                }
-                result.innerHTML=mult;
-                return false;
+        $.ajax({
+            url: "add.php",
+            type: "POST",
+            data: {nim:nim, nama:nama, prodi:prodi, angkatan:angkatan},
+            success: function(data, status, xhr) {
+                $('#nim').val('');
+                $('#nama').val('');
+                $('#prodi').val('');
+                $('#angkatan').val('');
+                $.get("view.php", function(html) {
+                    $("#table_content").html(html);
+                });
+                $('#records_content').fadeOut(1100).html(data);
+            },
+            error: function() {
+                $('#records_content').fadeIn(3000).html('<div class="text-center">error here</div>');
+            },
+            beforeSend: function() {
+                $('#records_content').fadeOut(700).html('<div class="text-center">Loading...</div>');
+            },
+            complete: function() {
+                $('#link-add').hide();
+                $('#show-add').show(700);
             }
-            </script>
-    </body>
-    
+        });
+    });
+});
+    </script>
+</body>
+
 </html>
-
-<style>
-  * {
-    font-size: 30px;
-    font-family: 'Montserrat', sans-serif;
-    
-  }
-  
-    body{
-        margin-inline: 30%;
-        display: flex;
-        height: 100vh;
-        align-items: center;
-        justify-self: center;
-        justify-content: center;
-    }
-    .container{
-        border: 2px solid #333;
-        margin: 0;
-        padding: 0;
-    
-    }
-    .color{
-        display: table-cell;
-        width: 50px;
-        height: 50px;
-        margin: 0 1px;
-        cursor: pointer;
-        border: 2px solid #FFF;
-    
-    }
-    .c1r1 {
-        background-color: red ;
-    }
-    .c1r2 {
-        background-color: blue;
-    }
-    .c1r3 {
-        background-color: green;
-    }
-    .c1r4 {
-        background-color: yellow;
-    }
-    
-    
-</style>
